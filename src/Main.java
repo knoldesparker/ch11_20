@@ -2,7 +2,7 @@ import java.util.*;
 import java.io.*;
 
 public class Main {
-    public static void main(String[] args) throws FileNotFoundException { {
+    public static void main(String[] args) throws FileNotFoundException{
             Scanner console = new Scanner(System.in);
 
 
@@ -15,8 +15,16 @@ public class Main {
             ArrayList<String> list1 = getWords(input1);
             ArrayList<String> list2 = getWords(input2);
 
-            reportResults(list1, list2, overlap);
 
         }
+        public static ArrayList<String> getWords(Scanner input) {
+            // read all words and sort
+           Set<String> words = new TreeSet<>();
+            while (input.hasNext()) {
+                String next = input.next().toLowerCase();
+                words.add(next);
+            }
+            System.out.println(words.size());
+            return new ArrayList<>(words);
+        }
     }
-}
